@@ -10,18 +10,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <p class="lead"><span class="id-color">{{$slider->subtitle}}</span>
+                            <p class="lead"><span class="id-color">{{ $slider->subtitle }}</span>
                             </p>
                             <div class="spacer20"></div>
-                            <div class="h1_big">{{$slider->title}}
+                            <div class="h1_big">{{ $slider->title }}
                                 <br> London based
                                 <div class="typed-strings">
                                     @php
-                                    $vars =   explode(",",$slider->animasyon)
-                                  @endphp
-                                  @foreach ($vars as $var)
-                                          <p>{{$var}}</p>
-                                  @endforeach
+                                        $vars = explode(',', $slider->animasyon);
+                                    @endphp
+                                    @foreach ($vars as $var)
+                                        <p>{{ $var }}</p>
+                                    @endforeach
                                 </div>
                                 <div class="typed"></div>
                             </div>
@@ -46,7 +46,7 @@
             <div class="row-fluid table">
                 <div class="col-md-6 va-top">
                     <div class="img-fx">
-                        <img src="images/{{$services->file}}" alt="">
+                        <img src="images/{{ $services->file }}" alt="">
                         <div class="img-url"></div>
                     </div>
                 </div>
@@ -55,17 +55,17 @@
                     <div class="content-wrap">
 
                         @foreach ($servicess as $service)
-                             <!-- service box begin -->
-                        <div class="feature-box mb30">
-                            <div class="inner">
-                                <div class="text">
-                                    <i class="{{$service->icon}} id-color"></i>
-                                    <h3>{{$service->title}}</h3>{{$service->content}}
+                            <!-- service box begin -->
+                            <div class="feature-box mb30">
+                                <div class="inner">
+                                    <div class="text">
+                                        <i class="{{ $service->icon }} id-color"></i>
+                                        <h3>{{ $service->title }}</h3>{{ $service->content }}
+                                    </div>
+                                    <i class="big {{ $service->icon }} id-color"></i>
                                 </div>
-                                <i class="big {{$service->icon}} id-color"></i>
                             </div>
-                        </div>
-                        <!-- service box close -->
+                            <!-- service box close -->
                         @endforeach
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             <div class="row-fluid table">
                 <div class="col-md-6 va-top">
                     <div class="img-fx">
-                        <img src="images/{{$experiences->file}}" alt="">
+                        <img src="images/{{ $experiences->file }}" alt="">
                         <div class="img-url"></div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="col-md-6">
                     <div class="content-wrap">
                         <p class="lead">
-                            {{$experiences->content}}
+                            {{ $experiences->content }}
                         </p>
 
                         <div class="spacer30"></div>
@@ -109,23 +109,23 @@
 
                                 <div class="tab_single_content">
                                     @foreach ($experiencess_works as $exp)
-                                    <div class="exp-box">
-                                        <h5>{{$exp->start_yerar}} - {{$exp->end_year}}</h5>
-                                        <h4>{{$exp->title}}</h4>
-                                        <p>{{$exp->content}}</p>
-                                    </div>
+                                        <div class="exp-box">
+                                            <h5>{{ $exp->start_yerar }} - {{ $exp->end_year }}</h5>
+                                            <h4>{{ $exp->title }}</h4>
+                                            <p>{{ $exp->content }}</p>
+                                        </div>
                                     @endforeach
-                                  
-                                  
+
+
                                 </div>
 
                                 <div class="tab_single_content">
                                     @foreach ($experiencess_education as $exp)
-                                    <div class="exp-box">
-                                        <h5>{{$exp->start_yerar}} - {{$exp->end_year}}</h5>
-                                        <h4>{{$exp->title}}</h4>
-                                        <p>{{$exp->content}}</p>
-                                    </div>
+                                        <div class="exp-box">
+                                            <h5>{{ $exp->start_yerar }} - {{ $exp->end_year }}</h5>
+                                            <h4>{{ $exp->title }}</h4>
+                                            <p>{{ $exp->content }}</p>
+                                        </div>
                                     @endforeach
                                 </div>
 
@@ -144,26 +144,24 @@
     <!-- section begin -->
     <section id="section-portfolio" aria-label="section-portfolio" class="fluid overwidth">
         <div class="container-fluid">
-            @foreach ($portfolio as $prt)
             <div id="album-carousel-2" class="owl-carousel owl-theme">
-                <div class="carousel-item click" data-bgimage="url(images/{{$prt->image}})"
-                    data-url="/blog/{{$prt->id}}/{{$prt->slug}}">
-                    <div class="mask s2 full-height">
-                        <div class="cover">
-                            <div class="text">
-                                <h2>{{$prt->title}}</h2>
-                                <div class="tiny-border"></div>
-                                <div class="clearfix"></div>
-                                <p>{{$prt->content}}</p>
+                @foreach ($portfolio as $prt)
+                    <div class="carousel-item click" data-bgimage="url({{ asset('images/' . $prt->image) }})">
+                        {{-- data-url="/blog/{{ $prt->id }}/{{ $prt->slug }}" --}}
+                        <div class="mask s2 full-height">
+                            <div class="cover">
+                                <div class="text">
+                                    <h2>{{ $prt->title }}</h2>
+                                    <div class="tiny-border"></div>
+                                    <div class="clearfix"></div>
+                                    <p>{{ $prt->content }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-          
-
-        
+                @endforeach
             </div>
+
         </div>
 
         <div class="pf-nav left"><i class="arrow_left"></i></div>
@@ -177,9 +175,9 @@
             <div class="row-fluid table">
                 <div class="col-md-6 va-top">
                     <div class="img-fx">
-                        <img src="images/{{$blog->file}}" alt="">                        
+                        <img src="images/{{ $blog->file }}" alt="">
                         <div class="img-url"></div>
-                        
+
                     </div>
                 </div>
 
@@ -187,20 +185,22 @@
                     <div class="content-wrap">
 
                         @foreach ($blogs as $blg)
-                        <div class="bloglist s1 item">
-                            <div class="post-content">
-                                <div class="date-box">
-                                    <div class="d">{{$blg->day}}</div>
-                                    <div class="m">{{$blg->month}}</div>
-                                </div>
-                                <div class="post-text">
-                                    <h3><a href="/blog/{{$blg->id}}/{{$blg->slug}}">{{$blg->title}}</a></h3>
-                                    <p>{{substr($blg->content,0,200).'...'}}</p>
+                            <div class="bloglist s1 item">
+                                <div class="post-content">
+                                    <div class="date-box">
+                                        <div class="d">{{ $blg->day }}</div>
+                                        <div class="m">{{ $blg->month }}</div>
+                                    </div>
+                                    <div class="post-text">
+                                        <h3><a
+                                                href="/blog/{{ $blg->id }}/{{ $blg->slug }}">{{ $blg->title }}</a>
+                                        </h3>
+                                        <p>{{ substr($blg->content, 0, 200) . '...' }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-                      
+
 
                     </div>
                 </div>
@@ -219,7 +219,7 @@
             <div class="row-fluid table">
                 <div class="col-md-6 va-top">
                     <div class="img-fx">
-                        <img src="images/{{$contact->file}}" alt="">
+                        <img src="images/{{ $contact->file }}" alt="">
                         <div class="img-url"></div>
                     </div>
                 </div>
@@ -229,19 +229,19 @@
                             <ul class="data">
                                 <li>
                                     <div>E-mail</div>
-                                    <div>{{$settings->email}}</div>
+                                    <div>{{ $settings->email }}</div>
                                 </li>
                                 <li>
                                     <div>Phone</div>
-                                    <div>{{$settings->phone}}</div>
+                                    <div>{{ $settings->phone }}</div>
                                 </li>
                                 <li>
                                     <div>Website</div>
-                                    <div>{{$settings->website}}</div>
+                                    <div>{{ $settings->website }}</div>
                                 </li>
                                 <li>
                                     <div>Address</div>
-                                    <div>{{$settings->address}}</div>
+                                    <div>{{ $settings->address }}</div>
                                 </li>
                             </ul>
                         </div>
